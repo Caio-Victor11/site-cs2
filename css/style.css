@@ -5,25 +5,10 @@
     box-sizing: border-box;
 }
 
-h1 {
-    text-align: center;
-}
-
-h2 {
-    text-align: center;
-}
-
-/* Ajuste para garantir que o conteúdo ocupe a altura restante */
-main {
-    min-height: calc(100vh - 90px); /* Ajuste com base na altura do rodapé */
-    padding: 30px;
-}
-
-/* Estilos gerais */
 body, html {
     font-family: Arial, sans-serif;
-    background: url('../images/1.jpg') no-repeat center center fixed; /* Caminho da imagem */
-    background-size: cover; /* A imagem cobrirá toda a tela */
+    background: url('../images/1.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: white;
     margin: 0;
     padding: 0;
@@ -36,7 +21,7 @@ footer {
     text-align: center;
     padding: 15px;
     margin-top: 30px;
-    min-height: 60px; /* Garante uma altura mínima */
+    min-height: 60px;
 }
 
 header {
@@ -44,7 +29,6 @@ header {
     padding: 15px 0;
 }
 
-/* Estilo geral do menu */
 header nav ul {
     list-style-type: none;
     text-align: center;
@@ -55,34 +39,67 @@ header nav ul li {
     margin: 0 20px;
 }
 
+/* Estilo básico para os links */
 header nav ul li a {
-    color: #f4f4f4;
-    text-decoration: none;
-    font-size: 17px;
     position: relative;
-    transition: color 0.3s ease;
+    display: inline-block;
+    padding: 5px 10px; /* Espaçamento ao redor do texto */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: white; /* Cor do texto */
 }
 
-/* Efeito hover */
 header nav ul li a:hover {
-    color: #ffa500; /* Muda a cor do texto */
+    color: #ffa500;
 }
 
-/* Efeito de linha embaixo ao passar o mouse */
+/* Pseudo-elemento para a borda superior */
+header nav ul li a::before,
 header nav ul li a::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #ffa500;
-    left: 50%;
-    bottom: -5px; /* Distância do texto */
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+    background-color: transparent;
+    border: 2px solid #ffa500; /* Cor da borda */
+    transition: all 0.2s ease; /* Efeito de transição suave */
+}
+
+/* Bordas superior e inferior */
+header nav ul li a::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Inicialmente a borda superior é invisível */
+}
+
+header nav ul li a::after {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Inicialmente a borda inferior é invisível */
+}
+
+/* Bordas laterais */
+header nav ul li a::after {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0; /* Inicialmente a borda lateral direita é invisível */
+}
+
+/* Efeito ao passar o mouse */
+header nav ul li a:hover::before,
+header nav ul li a:hover::after {
+    height: 100%; /* Faz a borda superior e inferior ficarem visíveis */
+    width: 100%; /* Faz as bordas laterais ficarem visíveis */
+}
+
+/* Agora as bordas completam o quadrado ao redor do nome */
+header nav ul li a:hover::before {
+    top: 0;
+    left: 0;
 }
 
 header nav ul li a:hover::after {
-    width: 100%; /* Linha aparece ao passar o mouse */
+    width: 100%;
 }
 
 header .menu {
@@ -105,11 +122,22 @@ header .menu a:hover {
     color: #ffa500;
 }
 
-main {
-    padding: 30px;
+/* Responsividade */
+@media (max-width: 768px) {
+    .cards {
+        justify-content: center;
+    }
+    .card {
+        width: 45%;
+    }
 }
 
-/* Estilo da seção Hero */
+@media (max-width: 480px) {
+    .card {
+        width: 90%;
+    }
+}
+
 .hero {
     text-align: center;
     padding: 50px;
@@ -131,6 +159,7 @@ main {
     background: #ff7500;
 }
 
+/* Carousel */
 .carousel {
     position: relative;
     max-width: 80%;
@@ -162,16 +191,6 @@ main {
     border-bottom: 4px solid #ffa500;
 }
 
-.carousel-description {
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -198,68 +217,100 @@ main {
     background: #ffa500;
 }
 
-/* Ajuste para as imagens ficarem em 3 colunas de tamanho igual */
-.cards {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
+/* Seção de Mapas e Armas */
+#mapas-lista, #armas-lista {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Estilo para os Mapas e Armas */
+.map-card, .arma-card {
+    background: #000000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: inline-block;
+    width: 30%;
+    margin: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.map-card:hover, .arma-card:hover {
+    transform: translateY(-5px);
+}
+
+.map-card img, .arma-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.map-card:hover img, .arma-card:hover img {
+    transform: scale(1.05);
+}
+
+#mapa-detalhes, #arma-detalhes {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#mapa-detalhes img, #arma-detalhes img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+#mapa-detalhes ul, #arma-detalhes ul {
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+#mapa-detalhes ul li, #arma-detalhes ul li {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+/* Estilo do Ranking */
+#ranking {
+    text-align: center;
     padding: 30px;
 }
 
-.card {
-    background: #1f1f1f;
-    border-radius: 5px;
-    text-align: center;
-    padding: 15px;
-    width: 32%;
-    box-sizing: border-box;
-    transition: transform 0.3s ease;
-}
-
-.card a {
-    display: block;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.card a:hover {
-    transform: scale(1.05);
-}
-
-.card a:active {
-    transform: scale(0.95);
-}
-
-/* Certificando-se de que as imagens se ajustem corretamente */
-.card img {
-    width: 100%;
-    height: auto;
+#imagem-ranks {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    display: block;
 }
 
-.card a:hover img {
-    transform: scale(1.05);
+.patente-descricao {
+    background-color: rgba(0, 0, 0, 0.762);
+    color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px auto;
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
 }
 
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .cards {
-        justify-content: center;
-    }
-
-    .card {
-        width: 45%;
-    }
+.patente-descricao h3 {
+    color: #fbfbfb;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-@media (max-width: 480px) {
-    .card {
-        width: 90%;
-    }
+.patente-descricao p {
+    font-size: 15px;
+    color: #ffa500;
 }
 
 /* Estilo da seção de Dicas */
@@ -306,13 +357,11 @@ main {
 
 .dica iframe {
     width: 100%;
-    height: 200px;  /* Ajuste a altura conforme necessário */
+    height: 200px;
     border-radius: 8px;
     margin-top: 15px;
-    max-width: 100%;
 }
 
-/* Estilo do botão de detalhes */
 .btn-detalhes {
     display: inline-block;
     background-color: #ffa500;
@@ -337,7 +386,6 @@ main {
     background-color: #003d80;
 }
 
-/* Detalhe de conteúdo */
 .detalle {
     margin-top: 15px;
     color: #ccc;
@@ -347,121 +395,6 @@ main {
     font-size: 15px;
     margin-top: 10px;
     text-align: left;
-}
-
-/* Estilo para seções de Mapas e Armas */
-#mapas-lista, #armas-lista {
-    padding: 30px;
-    text-align: center;
-}
-
-/* Estilo para os Mapas e Armas */
-.map-card, .arma-card {
-    background: #000000;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    padding: 15px;
-    display: inline-block;
-    width: 30%;
-    margin: 15px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out; /* Animação para o efeito de hover */
-}
-
-/* Efeito hover para Mapas e Armas */
-.map-card:hover, .arma-card:hover {
-    transform: translateY(-5px); /* Efeito de elevação */
-}
-
-/* Imagens dos Mapas e Armas */
-.map-card img, .arma-card img {
-    width: 100%;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    transition: transform 0.3s ease; /* Efeito de aumento suave na imagem */
-}
-
-/* Efeito hover na imagem dos Mapas e Armas */
-.map-card:hover img, .arma-card:hover img {
-    transform: scale(1.05); /* Efeito de aumento suave na imagem */
-}
-
-/* Detalhes de Mapas e Armas */
-#mapa-detalhes, #arma-detalhes {
-    text-align: center;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #000000;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-#mapa-detalhes img, #arma-detalhes img {
-    width: 100%;
-    max-width: 600px;
-    border-radius: 8px;
-    margin: 20px 0;
-}
-
-#mapa-detalhes ul, #arma-detalhes ul {
-    list-style-type: none;
-    margin-top: 15px;
-}
-
-#mapa-detalhes ul li, #arma-detalhes ul li {
-    font-size: 17px;
-    margin-bottom: 10px;
-}
-
-/* Estilo do Ranking */
-#ranking {
-    text-align: center;
-    padding: 30px;
-}
-
-#imagem-ranks {
-    width: 80%;
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 8px;
-    display: block;
-}
-
-/* Estilo das Patentes */
-.patente-descricao {
-    background-color: rgba(0, 0, 0, 0.762);
-    color: white;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 15px auto;
-    width: 80%;
-    max-width: 900px;
-    text-align: center;
-}
-
-.patente-descricao h3 {
-    color: #fbfbfb;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-.patente-descricao p {
-    font-size: 15px;
-    color: #ffa500;
-}
-
-/* Responsividade para Dicas */
-@media (max-width: 768px) {
-    .grid-dicas {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .dica {
-        max-width: 90%;
-    }
 }
 
 /* Estilo da seção História */
@@ -485,16 +418,21 @@ main {
     font-size: 17px;
     color: #000000;
     line-height: 1.6;
+    text-align: center;
     margin-bottom: 20px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+}
+
+.historico img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 /* Caixa de conteúdo */
 .caixa {
     background-color: rgba(0, 0, 0, 0.762);
-    padding: 20px;
+    padding: 15px;
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.636);
