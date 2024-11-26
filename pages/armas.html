@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 - Armas</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/mapas.html">Mapas</a></li>
+                <li><a href="../pages/armas.html">Armas</a></li>
+                <li><a href="../pages/ranking.html">Ranking</a></li>
+                <li><a href="../pages/dicas.html">Dicas</a></li>
+                <li><a href="../pages/historia.html">História</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section id="armas-lista">
+            <h2>Armas do CS2</h2>
+
+            <div class="arma-card">
+                <img src="../images/6444f00a41b10.jpg" alt="AK-47">
+                <h3>AK-47</h3>
+                <p>Rifle de alta potência, ideal para confrontos de longo alcance.</p>
+                <ul>
+                    <li><strong>Dano:</strong> 111 (cabeça)</li>
+                    <li><strong>Preço:</strong> $2700</li>
+                    <li><strong>Categoria:</strong> Rifle</li>
+                </ul>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('ak47')">Veja Detalhes</button>
+            </div>
+
+            <div class="arma-card">
+                <img src="../images/M4A1-S-CS2.png" alt="M4A1-S">
+                <h3>M4A1-S</h3>
+                <p>Rifle silencioso com excelente precisão. Ideal para CTs.</p>
+                <ul>
+                    <li><strong>Dano:</strong> 88 (cabeça)</li>
+                    <li><strong>Preço:</strong> $3100</li>
+                    <li><strong>Categoria:</strong> Rifle</li>
+                </ul>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('m4a1')">Veja Detalhes</button>
+            </div>
+
+            <div class="arma-card">
+                <img src="../images/desert-eagle.jpg" alt="Deagle">
+                <h3>Desert Eagle</h3>
+                <p>Pistola de alto dano, boa para eliminação de inimigos em uma bala.</p>
+                <ul>
+                    <li><strong>Dano:</strong> 150 (cabeça)</li>
+                    <li><strong>Preço:</strong> $700</li>
+                    <li><strong>Categoria:</strong> Pistola</li>
+                </ul>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('deagle')">Veja Detalhes</button>
+            </div>
+
+            <div class="arma-card">
+                <img src="../images/awp.jpeg" alt="AWP">
+                <h3>AWP</h3>
+                <p>A AWP (Arctic Warfare Police) é uma das rifles de sniper mais poderosas do jogo, capaz de eliminar um inimigo com um único tiro na cabeça.</p>
+                <ul>
+                    <li><strong>Dano:</strong> 450 (cabeça) 101 (corpo)</li>
+                    <li><strong>Preço:</strong> $4.750</li>
+                    <li><strong>Categoria:</strong> Sniper</li>
+                </ul>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('awp')">Veja Detalhes</button>
+            </div>
+
+            <div class="arma-card">
+                <img src="../images/mac10.jpeg" alt="Mac-10">
+                <h3>MAC-10</h3>
+                <p> A MAC-10 é uma submetralhadora leve e de baixo custo, ideal para situações de combate rápido e agressivo.</p>
+                <ul>
+                    <li><strong>Dano:</strong> 27 (cabeça)</li>
+                    <li><strong>Preço:</strong> $1.050</li>
+                    <li><strong>Categoria:</strong> Submetralhadora</li>
+                </ul>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('mac')">Veja Detalhes</button>
+            </div>
+
+            <div class="arma-card">
+                <img src="../images/glock.png" alt="Glock-18">
+                <h3>Glock-18</h3>
+                <p>A Glock-18 é a pistola padrão dos Terroristas (T), oferecendo uma opção barata e eficaz no início de cada rodada.</p>
+                <ul>
+                    <li><strong>Dano:</strong> 40 (cabeça)</li>
+                    <li><strong>Preço:</strong> $500</li>
+                    <li><strong>Categoria:</strong> Pistola</li>
+                </ul>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('glock')">Veja Detalhes</button>
+            </div>
+        </section>
+
+        <section id="arma-detalhes" style="display:none;">
+            <h2 id="arma-nome"></h2>
+            <div id="arma-imagem"></div>
+            <ul id="arma-detalhes-lista"></ul>
+            <button class="btn-detalhes" onclick="fecharDetalhes()">Fechar Detalhes</button>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; Site desenvolvido na disciplina de Introdução à Tecnologia Web 1º Período Sistemas da Informação. Aluno: Caio Victor</p>
+    </footer>
+
+    <!-- Coloque os scripts no final do body -->
+    <script src="../js/armas.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS2 - Mapas</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../pages/mapas.html">Mapas</a></li>
+                <li><a href="../pages/armas.html">Armas</a></li>
+                <li><a href="../pages/ranking.html">Ranking</a></li>
+                <li><a href="../pages/dicas.html">Dicas</a></li>
+                <li><a href="../pages/historia.html">História</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <section id="mapas-lista">
+            <h2>Mapas de CS2</h2>
+
+            <div class="map-card">
+                <img src="../images/wLQsGo9-a3I7g6xkdhYI50.jpg" alt="Dust 2">
+                <h3>Dust 2</h3>
+                <p>O clássico mapa, refeito e com gráficos renovados. Conhecido pela popularidade e equilíbrio entre Terroristas e Contra-Terroristas.</p>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('dust2')">Veja Detalhes</button>
+            </div>
+
+            <div class="map-card">
+                <img src="../images/qvQdT82RvIX2GuxlMQ4v6G.jpg" alt="Mirage">
+                <h3>Mirage</h3>
+                <p>Mapa altamente competitivo, famoso por sua grande quantidade de entradas no A e B. Requer boa comunicação e habilidades táticas.</p>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('mirage')">Veja Detalhes</button>
+            </div>
+
+            <div class="map-card">
+                <img src="../images/strange-cs2-inferno-in-my-game-files-v0-mhs8p233tgva1.png" alt="Inferno">
+                <h3>Inferno</h3>
+                <p>Mapa de combate próximo, perfeito para estratégias de site e controle de posições. Ideal para trabalho em equipe.</p>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('inferno')">Veja Detalhes</button>
+            </div>
+
+            <div class="map-card">
+                <img src="../images/nuke-cs1-vs-cs2-comparison-shots-v0-1rl0kalos29b1.png" alt="Nuke">
+                <h3>Nuke</h3>
+                <p>Mapa altamente competitivo, conhecido pela sua verticalidade e desafios táticos. Com vários andares e entradas para os sites A e B, exige boa coordenação entre a equipe e controle de pontos estratégicos como escadas e o topo do silo.</p>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('nuke')">Veja Detalhes</button>
+            </div>
+
+            <div class="map-card">
+                <img src="../images/cache-csgo.jpg" alt="Cache">
+                <h3>Cache</h3>
+                <p>Mapa equilibrado com muitas entradas para os sites A e B. O controle do meio é essencial para definir a estratégia da partida.</p>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('cache')">Veja Detalhes</button>
+            </div>
+
+            <div class="map-card">
+                <img src="../images/train.jpg" alt="Train">
+                <h3>Train</h3>
+                <p>Mapa clássico com temática ferroviária, famoso pelos vagões e plataformas que exigem controle cuidadoso e comunicação constante. As equipes devem dominar áreas como o ponto B e os pontos elevados.</p>
+                <button class="btn-detalhes" onclick="mostrarDetalhes('train')">Veja Detalhes</button>
+            </div>
+        </section>
+
+        <section id="mapa-detalhes" style="display:none;">
+            <h2 id="mapa-nome"></h2>
+            <img id="mapa-imagem" src="" alt="">
+            <p id="mapa-descricao"></p>
+            <button class="btn-detalhes" onclick="fecharDetalhes()">Fechar Detalhes</button>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; Site desenvolvido na disciplina de Introdução à Tecnologia Web 1º Período Sistemas da Informação. Aluno: Caio Victor</p>
+    </footer>
+
+    <script src="../js/mapas.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

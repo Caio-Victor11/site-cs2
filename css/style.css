@@ -1,0 +1,459 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    font-family: Arial, sans-serif;
+    background: url('../images/cs2-gif.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+footer {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    min-height: 60px;
+}
+
+header {
+    background-color: #000000;
+    padding: 15px 0;
+}
+
+header nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+/* Estilo básico para os links */
+header nav ul li a {
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px; /* Espaçamento ao redor do texto */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: white; /* Cor do texto */
+}
+
+header nav ul li a:hover {
+    color: #ffa500;
+}
+
+/* Pseudo-elemento para a borda superior */
+header nav ul li a::before,
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    background-color: transparent;
+    border: 2px solid #ffa500; /* Cor da borda */
+    transition: all 0.2s ease; /* Efeito de transição suave */
+}
+
+/* Bordas superior e inferior */
+header nav ul li a::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Inicialmente a borda superior é invisível */
+}
+
+header nav ul li a::after {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Inicialmente a borda inferior é invisível */
+}
+
+/* Bordas laterais */
+header nav ul li a::after {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0; /* Inicialmente a borda lateral direita é invisível */
+}
+
+/* Efeito ao passar o mouse */
+header nav ul li a:hover::before,
+header nav ul li a:hover::after {
+    height: 100%; /* Faz a borda superior e inferior ficarem visíveis */
+    width: 100%; /* Faz as bordas laterais ficarem visíveis */
+}
+
+/* Agora as bordas completam o quadrado ao redor do nome */
+header nav ul li a:hover::before {
+    top: 0;
+    left: 0;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
+}
+
+header .menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+header .menu li {
+    margin: 0 15px;
+}
+
+header .menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .menu a:hover {
+    color: #ffa500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cards {
+        justify-content: center;
+    }
+    .card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 90%;
+    }
+}
+
+.hero {
+    text-align: center;
+    padding: 50px;
+    background: url('images/1.jpg') no-repeat center center/cover;
+    color: #fff;
+}
+
+.hero button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    background: #ffa500;
+    color: #fff;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.hero button:hover {
+    background: #ff7500;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding-top: 20px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 3s ease-in-out;
+    width: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom: 4px solid #ffa500;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background: #ffa500;
+}
+
+/* Seção de Mapas e Armas */
+#mapas-lista, #armas-lista {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Estilo para os Mapas e Armas */
+.map-card, .arma-card {
+    background: #000000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: inline-block;
+    width: 30%;
+    margin: 15px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.map-card:hover, .arma-card:hover {
+    transform: translateY(-5px);
+}
+
+.map-card img, .arma-card img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.map-card:hover img, .arma-card:hover img {
+    transform: scale(1.05);
+}
+
+#mapa-detalhes, #arma-detalhes {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#mapa-detalhes img, #arma-detalhes img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+#mapa-detalhes ul, #arma-detalhes ul {
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+#mapa-detalhes ul li, #arma-detalhes ul li {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+/* Estilo do Ranking */
+#ranking {
+    text-align: center;
+    padding: 30px;
+}
+
+#imagem-ranks {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.patente-descricao {
+    background-color: rgba(0, 0, 0, 0.762);
+    color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px auto;
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.patente-descricao h3 {
+    color: #fbfbfb;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.patente-descricao p {
+    font-size: 15px;
+    color: #ffa500;
+}
+
+/* Estilo da seção de Dicas */
+#dicas {
+    text-align: center;
+    padding: 30px;
+}
+
+.grid-dicas {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+    justify-items: center;
+}
+
+.dica {
+    background-color: #000000;
+    color: white;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.dica:hover {
+    transform: translateY(-5px);
+}
+
+.dica h3 {
+    color: #f4f4f4;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.dica p {
+    font-size: 15px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.dica iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.btn-detalhes {
+    display: inline-block;
+    background-color: #ffa500;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-detalhes:hover {
+    background-color: #ff7500;
+    transform: scale(1.05);
+}
+
+.btn-detalhes:active {
+    transform: scale(0.95);
+    background-color: #003d80;
+}
+
+.detalle {
+    margin-top: 15px;
+    color: #ccc;
+}
+
+.detalle p {
+    font-size: 15px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+/* Estilo da seção História */
+.historico {
+    text-align: center;
+    padding: 30px;
+}
+
+.historico h1 {
+    font-size: 37px;
+    margin-bottom: 20px;
+}
+
+.historico h2 {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.historico p {
+    font-size: 17px;
+    color: #000000;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.historico img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* Caixa de conteúdo */
+.caixa {
+    background-color: rgba(0, 0, 0, 0.762);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.636);
+}
+
+.caixa p {
+    font-size: 16px;
+    color: #ffa500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .historico h1 {
+        font-size: 30px;
+    }
+
+    .historico h2 {
+        font-size: 17px;
+    }
+
+    .historico p {
+        font-size: 15px;
+    }
+}
